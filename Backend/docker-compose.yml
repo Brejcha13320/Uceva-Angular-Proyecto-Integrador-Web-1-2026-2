@@ -6,22 +6,22 @@ services:
     container_name: users-products-app
     restart: always
     ports:
-      - 5432:5432
+      - 5433:5432
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=123456
-      - POSTGRES_DB=users-products-db
+      - POSTGRES_DB=proyecto-integrador-db
     volumes:
       - ./postgres:/var/lib/postgresql/data
   
   pdAdmin:
     image: dpage/pgadmin4
-    container_name: pgadmin-users-products-db
+    container_name: pgadmin-proyecto-integrador-db
     restart: always
     depends_on:
       - myDB
     ports:
-      - 8080:80
+      - 8081:80
     environment:
       - PGADMIN_DEFAULT_EMAIL=user@google.com
       - PGADMIN_DEFAULT_PASSWORD=123456
